@@ -295,14 +295,23 @@ bool array2bmp(const std::string &filename, const vector<vec> &pixels, const siz
 
 int main(int argc, char **argv)
 {
+	//creating new file for initial analysis
+	ofstream initialAnalysis("initial_result.csv", std::ios_base::app);
+
 	random_device rd;
 	default_random_engine generator(rd());
 	uniform_real_distribution<double> distribution;
 	auto get_random_number = bind(distribution, generator);
 
 	// *** These parameters can be manipulated in the algorithm to modify work undertaken ***
-	constexpr size_t dimension = 400;
-	constexpr size_t samples = 40; // Algorithm performs 4 * samples per pixel.
+	constexpr size_t dimension = 1024;
+	constexpr size_t samples = 4; // Algorithm performs 4 * samples per pixel.
+
+	initialAnalysis << "Image Dimension: " << endl;
+	initialAnalysis << dimension << endl;
+	initialAnalysis << "Sample per pixel: " << endl;
+	initialAnalysis << samples * 4 << endl;
+
 	vector<sphere> spheres
 	{
 		sphere(1e5, vec(1e5 + 1, 40.8, 81.6), vec(), vec(0.75, 0.25, 0.25), reflection_type::DIFFUSE),
@@ -322,6 +331,9 @@ int main(int argc, char **argv)
 	vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
 	vec r;
 	vector<vec> pixels(dimension * dimension);
+
+	//Start point to measure time of execution
+	auto start = system_clock::now();
 
 	for (size_t y = 0; y < dimension; ++y)
 	{
@@ -345,6 +357,15 @@ int main(int argc, char **argv)
 			}
 		}
 	}
+
+	//End point to measure time of execution
+	auto end = system_clock::now();
+	auto total = duration_cast<milliseconds>(end - start).count();
+
+	initialAnalysis << "Time taken(ms): " << endl;
+	initialAnalysis << total << endl;
+	initialAnalysis << endl << endl;
+	initialAnalysis.close();
 	cout << "img.bmp" << (array2bmp("img.bmp", pixels, dimension, dimension) ? " Saved\n" : " Save Failed\n");
 	return 0;
 }
