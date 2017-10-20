@@ -305,7 +305,7 @@ int main(int argc, char **argv)
 
 	// *** These parameters can be manipulated in the algorithm to modify work undertaken ***
 	constexpr size_t dimension = 1024;
-	constexpr size_t samples = 4; // Algorithm performs 4 * samples per pixel.
+	constexpr size_t samples = 1024; // Algorithm performs 4 * samples per pixel.
 
 	initialAnalysis << "Image Dimension: " << endl;
 	initialAnalysis << dimension << endl;
