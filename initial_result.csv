@@ -1,11 +1,245 @@
-Sample per pixel: ,Time taken(ms): 
-4,2364
-16,9142
-64,30516
-256,121480
-1024,484962
-,
-,
-,
-,
-400 x 400,
+LAB
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+9142
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+2364
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+30516
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+121480
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+484962
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+4096
+Time taken(ms): 
+1946102
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+4
+Time taken(ms): 
+13592
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+16
+Time taken(ms): 
+51321
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+64
+Time taken(ms): 
+201578
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+256
+Time taken(ms): 
+827554
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+1024
+Time taken(ms): 
+3218981
+
+HOME
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+4686
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+15590
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+60411
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+242781
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+966344
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+4096
+Time taken(ms): 
+3850173
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+4
+Time taken(ms): 
+26279
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+16
+Time taken(ms): 
+99919
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+64
+Time taken(ms): 
+401762
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+256
+Time taken(ms): 
+1569080
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+1024
+Time taken(ms): 
+6249595
+
+Home - 1 sphere
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+3418
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+11138
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+41742
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+4
+Time taken(ms): 
+19656
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+16
+Time taken(ms): 
+69375
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+64
+Time taken(ms): 
+271816
+
+Home - 4 spheres
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+3720
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+12711
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64

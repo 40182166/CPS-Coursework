@@ -1,3 +1,4 @@
+LAB
 Image Dimension: 
 400
 Sample per pixel: 
@@ -85,4 +86,210 @@ Sample per pixel:
 Time taken(ms): 
 3218981
 
+HOME
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+4686
 
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+15590
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+60411
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+242781
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+966344
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+4096
+Time taken(ms): 
+3850173
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+4
+Time taken(ms): 
+26279
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+16
+Time taken(ms): 
+99919
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+64
+Time taken(ms): 
+401762
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+256
+Time taken(ms): 
+1569080
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+1024
+Time taken(ms): 
+6249595
+
+Home - 1 sphere
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+3418
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+11138
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+41742
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+4
+Time taken(ms): 
+19656
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+16
+Time taken(ms): 
+69375
+
+
+Image Dimension: 
+1024
+Sample per pixel: 
+64
+Time taken(ms): 
+271816
+
+Home - 4 spheres
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+3720
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+12711
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+50140
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+193266
+
+Home - 14 spheres
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+4952
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+18127
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+69437
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+274378
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+1088459

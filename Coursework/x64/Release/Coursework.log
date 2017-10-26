@@ -1,0 +1,11 @@
+﻿  stdafx.cpp
+  Coursework.cpp
+Coursework.cpp(269): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+Coursework.cpp(275): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+Coursework.cpp(277): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+Coursework.cpp(290): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Generating code
+  All 305 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Coursework.vcxproj -> F:\Desktop\Università\Year 4\Concurrent of Parrallel Systems\Coursework1\CPS-Coursework\Coursework\x64\Release\Coursework.exe
+  Coursework.vcxproj -> F:\Desktop\Università\Year 4\Concurrent of Parrallel Systems\Coursework1\CPS-Coursework\Coursework\x64\Release\Coursework.pdb (Full PDB)

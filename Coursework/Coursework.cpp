@@ -295,77 +295,89 @@ bool array2bmp(const std::string &filename, const vector<vec> &pixels, const siz
 
 int main(int argc, char **argv)
 {
-	//creating new file for initial analysis
-	ofstream initialAnalysis("initial_result.csv", std::ios_base::app);
-
-	random_device rd;
-	default_random_engine generator(rd());
-	uniform_real_distribution<double> distribution;
-	auto get_random_number = bind(distribution, generator);
-
-	// *** These parameters can be manipulated in the algorithm to modify work undertaken ***
-	constexpr size_t dimension = 1024;
-	constexpr size_t samples = 1024; // Algorithm performs 4 * samples per pixel.
-
-	initialAnalysis << "Image Dimension: " << endl;
-	initialAnalysis << dimension << endl;
-	initialAnalysis << "Sample per pixel: " << endl;
-	initialAnalysis << samples * 4 << endl;
-
-	vector<sphere> spheres
+	size_t samples = 1; // Algorithm performs 4 * samples per pixel.
+	while (samples != 4)
 	{
-		sphere(1e5, vec(1e5 + 1, 40.8, 81.6), vec(), vec(0.75, 0.25, 0.25), reflection_type::DIFFUSE),
-		sphere(1e5, vec(-1e5 + 99, 40.8, 81.6), vec(), vec(0.25, 0.25, 0.75), reflection_type::DIFFUSE),
-		sphere(1e5, vec(50, 40.8, 1e5), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-		sphere(1e5, vec(50, 40.8, -1e5 + 170), vec(), vec(), reflection_type::DIFFUSE),
-		sphere(1e5, vec(50, 1e5, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-		sphere(1e5, vec(50, -1e5 + 81.6, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-		sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
-		sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
-		sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
-	};
-	// **************************************************************************************
+		//creating new file for initial analysis
+		ofstream initialAnalysis("initial_result.csv", std::ios_base::app);
 
-	ray camera(vec(50, 52, 295.6), vec(0, -0.042612, -1).normal());
-	vec cx = vec(0.5135);
-	vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
-	vec r;
-	vector<vec> pixels(dimension * dimension);
+		random_device rd;
+		default_random_engine generator(rd());
+		uniform_real_distribution<double> distribution;
+		auto get_random_number = bind(distribution, generator);
 
-	//Start point to measure time of execution
-	auto start = system_clock::now();
+		// *** These parameters can be manipulated in the algorithm to modify work undertaken ***
+		constexpr size_t dimension = 1024;
 
-	for (size_t y = 0; y < dimension; ++y)
-	{
-		cout << "Rendering " << dimension << " * " << dimension << "pixels. Samples:" << samples * 4 << " spp (" << 100.0 * y / (dimension - 1) << ")" << endl;
-		for (size_t x = 0; x < dimension; ++x)
+		initialAnalysis << "Image Dimension: " << endl;
+		initialAnalysis << dimension << endl;
+		initialAnalysis << "Sample per pixel: " << endl;
+		initialAnalysis << samples * 4 << endl;
+
+		vector<sphere> spheres
 		{
-			for (size_t sy = 0, i = (dimension - y - 1) * dimension + x; sy < 2; ++sy)
+			sphere(1e5, vec(1e5 + 1, 40.8, 81.6), vec(), vec(0.75, 0.25, 0.25), reflection_type::DIFFUSE),
+			sphere(1e5, vec(-1e5 + 99, 40.8, 81.6), vec(), vec(0.25, 0.25, 0.75), reflection_type::DIFFUSE),
+			sphere(1e5, vec(50, 40.8, 1e5), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+			sphere(1e5, vec(50, 40.8, -1e5 + 170), vec(), vec(), reflection_type::DIFFUSE),
+			sphere(1e5, vec(50, 1e5, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+			sphere(1e5, vec(50, -1e5 + 81.6, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+			sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
+			sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
+
+			//Sphere added for analysis purposes
+			sphere(5, vec(50, 10, 32), vec(), vec(0, 0.75, 0), reflection_type::REFRACTIVE),
+			sphere(8, vec(50, 45, 20), vec(), vec(0.75, 0.75, 0), reflection_type::SPECULAR),
+			sphere(10, vec(73, 60, 78), vec(), vec(0, 0.75, 0.75), reflection_type::REFRACTIVE),
+			sphere(12, vec(16, 10, 90), vec(), vec(0.75, 0, 0.75), reflection_type::DIFFUSE),
+			sphere(8, vec(35, 50, 78), vec(), vec(0.75, 0, 0), reflection_type::SPECULAR),
+
+			sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
+		};
+		// **************************************************************************************
+
+		ray camera(vec(50, 52, 295.6), vec(0, -0.042612, -1).normal());
+		vec cx = vec(0.5135);
+		vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
+		vec r;
+		vector<vec> pixels(dimension * dimension);
+
+		//Start point to measure time of execution
+		auto start = system_clock::now();
+
+		for (size_t y = 0; y < dimension; ++y)
+		{
+			cout << "Rendering " << dimension << " * " << dimension << "pixels. Samples:" << samples * 4 << " spp (" << 100.0 * y / (dimension - 1) << ")" << endl;
+			for (size_t x = 0; x < dimension; ++x)
 			{
-				for (size_t sx = 0; sx < 2; ++sx)
+				for (size_t sy = 0, i = (dimension - y - 1) * dimension + x; sy < 2; ++sy)
 				{
-					r = vec();
-					for (size_t s = 0; s < samples; ++s)
+					for (size_t sx = 0; sx < 2; ++sx)
 					{
-						double r1 = 2 * get_random_number(), dx = r1 < 1 ? sqrt(r1) - 1 : 1 - sqrt(2 - r1);
-						double r2 = 2 * get_random_number(), dy = r2 < 1 ? sqrt(r2) - 1 : 1 - sqrt(2 - r2);
-						vec direction = cx * static_cast<double>(((sx + 0.5 + dx) / 2 + x) / dimension - 0.5) + cy * static_cast<double>(((sy + 0.5 + dy) / 2 + y) / dimension - 0.5) + camera.direction;
-						r = r + radiance(spheres, ray(camera.origin + direction * 140, direction.normal()), 0) * (1.0 / samples);
+						r = vec();
+						for (size_t s = 0; s < samples; ++s)
+						{
+							double r1 = 2 * get_random_number(), dx = r1 < 1 ? sqrt(r1) - 1 : 1 - sqrt(2 - r1);
+							double r2 = 2 * get_random_number(), dy = r2 < 1 ? sqrt(r2) - 1 : 1 - sqrt(2 - r2);
+							vec direction = cx * static_cast<double>(((sx + 0.5 + dx) / 2 + x) / dimension - 0.5) + cy * static_cast<double>(((sy + 0.5 + dy) / 2 + y) / dimension - 0.5) + camera.direction;
+							r = r + radiance(spheres, ray(camera.origin + direction * 140, direction.normal()), 0) * (1.0 / samples);
+						}
+						pixels[i] = pixels[i] + vec(clamp(r.x, 0.0, 1.0), clamp(r.y, 0.0, 1.0), clamp(r.z, 0.0, 1.0)) * 0.25;
 					}
-					pixels[i] = pixels[i] + vec(clamp(r.x, 0.0, 1.0), clamp(r.y, 0.0, 1.0), clamp(r.z, 0.0, 1.0)) * 0.25;
 				}
 			}
 		}
+
+		//End point to measure time of execution
+		auto end = system_clock::now();
+		auto total = duration_cast<milliseconds>(end - start).count();
+
+		initialAnalysis << "Time taken(ms): " << endl;
+		initialAnalysis << total << endl;
+		initialAnalysis << endl << endl;
+		initialAnalysis.close();
+		cout << "img.bmp" << (array2bmp("img.bmp", pixels, dimension, dimension) ? " Saved\n" : " Save Failed\n");
+		samples *= 4;
 	}
-
-	//End point to measure time of execution
-	auto end = system_clock::now();
-	auto total = duration_cast<milliseconds>(end - start).count();
-
-	initialAnalysis << "Time taken(ms): " << endl;
-	initialAnalysis << total << endl;
-	initialAnalysis << endl << endl;
-	initialAnalysis.close();
-	cout << "img.bmp" << (array2bmp("img.bmp", pixels, dimension, dimension) ? " Saved\n" : " Save Failed\n");
 	return 0;
 }
