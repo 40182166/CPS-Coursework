@@ -293,3 +293,149 @@ Sample per pixel:
 1024
 Time taken(ms): 
 1088459
+
+
+Home - 20 spheres
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+5482
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+20167
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+77359
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+304055
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+1236128
+
+FIRST IMPLEMENTATION USING MUTEX, LOCK GUARDS AND MAIN THREAD FOR LAST ITERATION
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+2483
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+5784
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+21442
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+84253
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+345315
+
+
+SECOND IMPLEMENTATION USING FUTURES - NO MAIN THREAD
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+2495
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+6000
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+23807
+
+SECOND IMPLEMENTATION USING FUTURES -MAIN THREAD
+Image Dimension: 
+400
+Sample per pixel: 
+4
+Time taken(ms): 
+2600
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+16
+Time taken(ms): 
+6050
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+64
+Time taken(ms): 
+24411
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+256
+Time taken(ms): 
+90097
+
+
+Image Dimension: 
+400
+Sample per pixel: 
+1024
+Time taken(ms): 
+358526
