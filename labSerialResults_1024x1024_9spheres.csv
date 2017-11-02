@@ -1,0 +1,26 @@
+Run : 1
+Sample per pixel: 4
+Time taken(s): 
+12.721
+
+
+Run : 1
+Sample per pixel: 16
+Time taken(s): 
+50.225
+
+
+Run : 1
+Sample per pixel: 64
+Time taken(s): 
+200.011
+
+
+Run : 1
+Sample per pixel: 256
+Time taken(s): 
+793.753
+
+
+Run : 1
+Sample per pixel: 1024

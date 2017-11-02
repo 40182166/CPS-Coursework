@@ -1,0 +1,398 @@
+Run : 1
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+2
+
+
+Run : 1
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7.67
+
+
+Run : 1
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30.479
+
+
+Run : 1
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+122.761
+
+
+Run : 1
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+485.234
+
+
+Run : 2
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1.904
+
+
+Run : 2
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7540
+
+
+Run : 2
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30087
+
+
+Run : 2
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+122208
+
+
+Run : 2
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+478798
+
+
+Run : 3
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1883
+
+
+Run : 3
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7498
+
+
+Run : 3
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30969
+
+
+Run : 3
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+120150
+
+
+Run : 3
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+479977
+
+
+Run : 4
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1884
+
+
+Run : 4
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7529
+
+
+Run : 4
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+29924
+
+
+Run : 4
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+119988
+
+
+Run : 4
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+484179
+
+
+Run : 5
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1900
+
+
+Run : 5
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7469
+
+
+Run : 5
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30197
+
+
+Run : 5
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+120464
+
+
+Run : 5
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+481175
+
+
+Run : 6
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1910
+
+
+Run : 6
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7494
+
+
+Run : 6
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+29990
+
+
+Run : 6
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+120544
+
+
+Run : 6
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+481580
+
+
+Run : 7
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1912
+
+
+Run : 7
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7501
+
+
+Run : 7
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+29874
+
+
+Run : 7
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+120294
+
+
+Run : 7
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+479567
+
+
+Run : 8
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1901
+
+
+Run : 8
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7435
+
+
+Run : 8
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+29711
+
+
+Run : 8
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+119557
+
+
+Run : 8
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+481764
+
+
+Run : 9
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1913
+
+
+Run : 9
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7583
+
+
+Run : 9
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30188
+
+
+Run : 9
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+121006
+
+
+Run : 9
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+480027
+
+
+Run : 10
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 4
+Time taken(ms): 
+1907
+
+
+Run : 10
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 16
+Time taken(ms): 
+7623
+
+
+Run : 10
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 64
+Time taken(ms): 
+30289
+
+
+Run : 10
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 256
+Time taken(ms): 
+120172
+
+
+Run : 10
+Image Dimension: 400x400
+Spheres: 9
+Sample per pixel: 1024
+Time taken(ms): 
+479601
