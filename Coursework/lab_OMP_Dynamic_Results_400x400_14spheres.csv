@@ -1,0 +1,120 @@
+Run : 1
+Sample per pixel: 4
+Time taken(s): 
+0.629
+
+
+Run : 1
+Sample per pixel: 16
+Time taken(s): 
+2.438
+
+
+Run : 1
+Sample per pixel: 64
+Time taken(s): 
+9.12
+
+
+Run : 1
+Sample per pixel: 256
+Time taken(s): 
+36.807
+
+
+Run : 2
+Sample per pixel: 4
+Time taken(s): 
+0.568
+
+
+Run : 2
+Sample per pixel: 16
+Time taken(s): 
+2.279
+
+
+Run : 2
+Sample per pixel: 64
+Time taken(s): 
+9.064
+
+
+Run : 2
+Sample per pixel: 256
+Time taken(s): 
+36.134
+
+
+Run : 3
+Sample per pixel: 4
+Time taken(s): 
+0.566
+
+
+Run : 3
+Sample per pixel: 16
+Time taken(s): 
+2.275
+
+
+Run : 3
+Sample per pixel: 64
+Time taken(s): 
+9.06
+
+
+Run : 3
+Sample per pixel: 256
+Time taken(s): 
+36.15
+
+
+Run : 4
+Sample per pixel: 4
+Time taken(s): 
+0.568
+
+
+Run : 4
+Sample per pixel: 16
+Time taken(s): 
+2.269
+
+
+Run : 4
+Sample per pixel: 64
+Time taken(s): 
+9.048
+
+
+Run : 4
+Sample per pixel: 256
+Time taken(s): 
+36.161
+
+
+Run : 5
+Sample per pixel: 4
+Time taken(s): 
+0.565
+
+
+Run : 5
+Sample per pixel: 16
+Time taken(s): 
+2.272
+
+
+Run : 5
+Sample per pixel: 64
+Time taken(s): 
+9.048
+
+
+Run : 5
+Sample per pixel: 256
+Time taken(s): 
+36.101
+
+
