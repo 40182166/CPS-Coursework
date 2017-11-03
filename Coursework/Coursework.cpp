@@ -340,7 +340,7 @@ void getPixelsOMP(size_t dimension, size_t samples, vec cx, vec cy, ray& camera,
 	int y, x;
 	vec r;
 
-#pragma omp parallel for private(y, x, r)
+#pragma omp parallel for private(y, x, r) schedule(static)
 
 	for (y = 0; y < dimension; ++y)
 	{
@@ -380,7 +380,7 @@ void getPixelsThreads(size_t dimension, size_t samples, vec cx, vec cy, vec r, r
 	//setting start and end to split work between threads
 	for (int y = start; y < end; ++y)
 	{
-		cout << "Rendering " << dimension << " * " << dimension << "pixels. Samples:" << samples * 4 << " spp (" << 100.0 * y / (dimension - 1) << ")" << endl;
+		//cout << "Rendering " << dimension << " * " << dimension << "pixels. Samples:" << samples * 4 << " spp (" << 100.0 * y / (dimension - 1) << ")" << endl;
 		for (size_t x = 0; x < dimension; ++x)
 		{
 			for (size_t sy = 0, i = (dimension - y - 1) * dimension + x; sy < 2; ++sy)
@@ -410,8 +410,8 @@ int main(int argc, char **argv)
 	size_t dimension = 400;
 
 	//creating new file for analysis
-	while (dimension != 1648)
-	{
+	//while (dimension != 1648)
+	//{
 		for (unsigned int run = 0; run < 5; run++)
 		{
 
@@ -419,9 +419,11 @@ int main(int argc, char **argv)
 
 			cout << "Run : " << run + 1 << endl;
 
-			while (samples != 256)		//STARTED LOOP HERE!!!
+			while (samples != 4)		//STARTED LOOP HERE!!!
 			{
-				ofstream initialAnalysis("homeSerialResults_bothDimensions_9spheres.csv", std::ios_base::app);
+				ofstream initialAnalysis("spheresCorrelation.csv", std::ios_base::app);
+
+				//ofstream initialAnalysis("homeSerialResults_bothDimensions_9spheres.csv", std::ios_base::app);
 				initialAnalysis << "Run : " << run + 1 << endl;
 
 				//creating new file for initial analysis
@@ -440,7 +442,7 @@ int main(int argc, char **argv)
 					sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
 					sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
 
-					/*
+					
 					//Sphere added for analysis on 14 shperes
 					sphere(5, vec(50, 10, 32), vec(), vec(0, 0.75, 0), reflection_type::REFRACTIVE),
 					sphere(8, vec(50, 45, 20), vec(), vec(0.75, 0.75, 0), reflection_type::SPECULAR),
@@ -448,7 +450,7 @@ int main(int argc, char **argv)
 					sphere(12, vec(16, 10, 90), vec(), vec(0.75, 0, 0.75), reflection_type::DIFFUSE),
 					sphere(8, vec(35, 50, 78), vec(), vec(0.75, 0, 0), reflection_type::SPECULAR),
 					////******
-
+					
 					//Sphere added for analysis on 20 spheres
 					sphere(5, vec(50, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
 					sphere(8, vec(50, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
@@ -457,7 +459,24 @@ int main(int argc, char **argv)
 					sphere(8, vec(20, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
 					sphere(8, vec(70, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
 					////******
-					*/
+
+					//Sphere added for analysis on 25 spheres
+					sphere(12, vec(22, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
+					sphere(4, vec(44, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
+					sphere(16, vec(68, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
+					sphere(5, vec(35, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
+					sphere(2, vec(10, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
+					sphere(10, vec(20, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
+					////******
+					
+					//Sphere added for analysis on 30 spheres
+					sphere(17, vec(10, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
+					sphere(11, vec(20, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
+					sphere(3, vec(20, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
+					sphere(5, vec(70, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
+					sphere(9, vec(50, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
+					sphere(13, vec(45, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
+					////******
 
 					sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
 				};
@@ -512,7 +531,7 @@ int main(int argc, char **argv)
 		}
 
 		//adding 624 to get 1024 simension. When the loop reaches 1648, it stops
-		dimension += 624;
-	}
+	//	dimension += 624;
+	//}
 	return 0;
 }
