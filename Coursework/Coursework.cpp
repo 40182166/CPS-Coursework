@@ -407,109 +407,112 @@ void getPixelsThreads(size_t dimension, size_t samples, vec cx, vec cy, vec r, r
 
 int main(int argc, char **argv)
 {
-	constexpr size_t dimension = 1024;
+	size_t dimension = 400;
 
 	//creating new file for analysis
-
-
-	for (unsigned int run = 0; run < 10; run++)
+	while (dimension != 1648)
 	{
-
-		size_t samples = 1; // Algorithm performs 4 * samples per pixel.
-
-		cout << "Run : " << run + 1 << endl;
-
-
-		while (samples != 256)		//STARTED LOOP HERE!!!
+		for (unsigned int run = 0; run < 5; run++)
 		{
-			ofstream initialAnalysis("labOMPResults_1024x1024_9spheres.csv", std::ios_base::app);
-			initialAnalysis << "Run : " << run + 1 << endl;
 
-			//creating new file for initial analysis
-			cout << "Sample per pixel: " << samples * 4 << endl;
+			size_t samples = 1; // Algorithm performs 4 * samples per pixel.
 
-			initialAnalysis << "Sample per pixel: " << samples * 4 << endl;
+			cout << "Run : " << run + 1 << endl;
 
-			vector<sphere> spheres
+			while (samples != 256)		//STARTED LOOP HERE!!!
 			{
-				sphere(1e5, vec(1e5 + 1, 40.8, 81.6), vec(), vec(0.75, 0.25, 0.25), reflection_type::DIFFUSE),
-				sphere(1e5, vec(-1e5 + 99, 40.8, 81.6), vec(), vec(0.25, 0.25, 0.75), reflection_type::DIFFUSE),
-				sphere(1e5, vec(50, 40.8, 1e5), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-				sphere(1e5, vec(50, 40.8, -1e5 + 170), vec(), vec(), reflection_type::DIFFUSE),
-				sphere(1e5, vec(50, 1e5, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-				sphere(1e5, vec(50, -1e5 + 81.6, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
-				sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
-				sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
+				ofstream initialAnalysis("homeSerialResults_bothDimensions_9spheres.csv", std::ios_base::app);
+				initialAnalysis << "Run : " << run + 1 << endl;
 
-				/*
-				//Sphere added for analysis on 14 shperes
-				sphere(5, vec(50, 10, 32), vec(), vec(0, 0.75, 0), reflection_type::REFRACTIVE),
-				sphere(8, vec(50, 45, 20), vec(), vec(0.75, 0.75, 0), reflection_type::SPECULAR),
-				sphere(10, vec(73, 60, 78), vec(), vec(0, 0.75, 0.75), reflection_type::REFRACTIVE),
-				sphere(12, vec(16, 10, 90), vec(), vec(0.75, 0, 0.75), reflection_type::DIFFUSE),
-				sphere(8, vec(35, 50, 78), vec(), vec(0.75, 0, 0), reflection_type::SPECULAR),
-				////******
+				//creating new file for initial analysis
+				cout << "Sample per pixel: " << samples * 4 << endl;
 
-				//Sphere added for analysis on 20 spheres
-				sphere(5, vec(50, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
-				sphere(8, vec(50, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
-				sphere(3, vec(73, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
-				sphere(7, vec(16, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
-				sphere(8, vec(20, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
-				sphere(8, vec(70, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
-				////******
-				*/
+				initialAnalysis << "Sample per pixel: " << samples * 4 << endl;
 
-				sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
-			};
-			// **************************************************************************************
+				vector<sphere> spheres
+				{
+					sphere(1e5, vec(1e5 + 1, 40.8, 81.6), vec(), vec(0.75, 0.25, 0.25), reflection_type::DIFFUSE),
+					sphere(1e5, vec(-1e5 + 99, 40.8, 81.6), vec(), vec(0.25, 0.25, 0.75), reflection_type::DIFFUSE),
+					sphere(1e5, vec(50, 40.8, 1e5), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+					sphere(1e5, vec(50, 40.8, -1e5 + 170), vec(), vec(), reflection_type::DIFFUSE),
+					sphere(1e5, vec(50, 1e5, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+					sphere(1e5, vec(50, -1e5 + 81.6, 81.6), vec(), vec(0.75, 0.75, 0.75), reflection_type::DIFFUSE),
+					sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
+					sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
 
-			ray camera(vec(50, 52, 295.6), vec(0, -0.042612, -1).normal());
-			vec cx = vec(0.5135);
-			vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
-			vec r;
-			vector<vec> pixels(dimension * dimension);
-			auto num_threads = thread::hardware_concurrency();
+					/*
+					//Sphere added for analysis on 14 shperes
+					sphere(5, vec(50, 10, 32), vec(), vec(0, 0.75, 0), reflection_type::REFRACTIVE),
+					sphere(8, vec(50, 45, 20), vec(), vec(0.75, 0.75, 0), reflection_type::SPECULAR),
+					sphere(10, vec(73, 60, 78), vec(), vec(0, 0.75, 0.75), reflection_type::REFRACTIVE),
+					sphere(12, vec(16, 10, 90), vec(), vec(0.75, 0, 0.75), reflection_type::DIFFUSE),
+					sphere(8, vec(35, 50, 78), vec(), vec(0.75, 0, 0), reflection_type::SPECULAR),
+					////******
 
-			//Start point to measure time of execution
-			auto start = system_clock::now();
+					//Sphere added for analysis on 20 spheres
+					sphere(5, vec(50, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
+					sphere(8, vec(50, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
+					sphere(3, vec(73, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
+					sphere(7, vec(16, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
+					sphere(8, vec(20, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
+					sphere(8, vec(70, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
+					////******
+					*/
 
-			vector<thread> allThreads;
+					sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
+				};
+				// **************************************************************************************
 
-			//splitting dimenstion of the image by available threads
-			auto range = dimension / num_threads;
+				ray camera(vec(50, 52, 295.6), vec(0, -0.042612, -1).normal());
+				vec cx = vec(0.5135);
+				vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
+				vec r;
+				vector<vec> pixels(dimension * dimension);
+				auto num_threads = thread::hardware_concurrency();
 
-			//for (int i = 0; i < num_threads - 1; i++)
-			//{
-			//	////Threads
-			//	allThreads.push_back(thread(getPixelsThreads, dimension, samples, cx, cy, r, camera, spheres, ref(pixels), i * range, (i + 1) * range));
-			//}
+				//Start point to measure time of execution
+				auto start = system_clock::now();
 
-			////Main thread performs last calculation
-			//getPixelsThreads(dimension, samples, cx, cy, r, camera, spheres, pixels, (num_threads - 1) * range, num_threads * range);
+				vector<thread> allThreads;
 
-			////joining threads
-			//for (auto &t : allThreads)
-			//{
-			//	t.join();
-			//}
+				//splitting dimenstion of the image by available threads
+				auto range = dimension / num_threads;
 
-			//Default loop calculation
-			//oldGetPixels(dimension, samples, cx, cy, r, camera, spheres, pixels);
+				//for (int i = 0; i < num_threads - 1; i++)
+				//{
+				//	////Threads
+				//	allThreads.push_back(thread(getPixelsThreads, dimension, samples, cx, cy, r, camera, spheres, ref(pixels), i * range, (i + 1) * range));
+				//}
 
-			getPixelsOMP(dimension, samples, cx, cy, camera, spheres, pixels);
+				////Main thread performs last calculation
+				//getPixelsThreads(dimension, samples, cx, cy, r, camera, spheres, pixels, (num_threads - 1) * range, num_threads * range);
 
-			//End point to measure time of execution
-			auto end = system_clock::now();
-			auto total = duration_cast<milliseconds>(end - start).count();
+				////joining threads
+				//for (auto &t : allThreads)
+				//{
+				//	t.join();
+				//}
 
-			initialAnalysis << "Time taken(s): " << endl;
-			initialAnalysis << total/1000.0 << endl;
-			initialAnalysis << endl << endl;
-			initialAnalysis.close();
-			cout << "img.bmp" << (array2bmp("img.bmp", pixels, dimension, dimension) ? " Saved\n" : " Save Failed\n");
-			samples *= 4;
+				//Default loop calculation
+				oldGetPixels(dimension, samples, cx, cy, r, camera, spheres, pixels);
+
+				//getPixelsOMP(dimension, samples, cx, cy, camera, spheres, pixels);
+
+				//End point to measure time of execution
+				auto end = system_clock::now();
+				auto total = duration_cast<milliseconds>(end - start).count();
+
+				initialAnalysis << "Time taken(s): " << endl;
+				initialAnalysis << total / 1000.0 << endl;
+				initialAnalysis << endl << endl;
+				initialAnalysis.close();
+				cout << "img.bmp" << (array2bmp("img.bmp", pixels, dimension, dimension) ? " Saved\n" : " Save Failed\n");
+				samples *= 4;
+			}
 		}
+
+		//adding 624 to get 1024 simension. When the loop reaches 1648, it stops
+		dimension += 624;
 	}
 	return 0;
 }
