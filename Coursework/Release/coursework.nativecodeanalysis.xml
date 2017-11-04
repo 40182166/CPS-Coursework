@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\40182166\documents\github\cps-coursework\coursework\</FILEPATH>
+      <FILENAME>coursework.cpp</FILENAME>
+      <LINE>343</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6993</DEFECTCODE>
+    <DESCRIPTION>Code analysis ignores OpenMP constructs; analyzing single-threaded code.</DESCRIPTION>
+    <FUNCTION></FUNCTION>
+    <DECORATED></DECORATED>
+    <FUNCLINE>0</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\40182166\documents\github\cps-coursework\coursework\</FILEPATH>
+      <FILENAME>coursework.cpp</FILENAME>
+      <LINE>390</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'r' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '371' of 'c:\users\40182166\documents\github\cps-coursework\coursework\coursework.cpp'.</DESCRIPTION>
+    <FUNCTION>getPixelsThreads</FUNCTION>
+    <DECORATED>?getPixelsThreads@@YAXIIUvec@@00AAUray@@AAV?$vector@Usphere@@V?$allocator@Usphere@@@std@@@std@@AAV?$vector@Uvec@@V?$allocator@Uvec@@@std@@@4@II@Z</DECORATED>
+    <FUNCLINE>371</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\40182166\documents\github\cps-coursework\coursework\</FILEPATH>
+        <FILENAME>coursework.cpp</FILENAME>
+        <LINE>371</LINE>
+        <COLUMN>77</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
