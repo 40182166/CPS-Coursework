@@ -340,7 +340,7 @@ void getPixelsOMP(size_t dimension, size_t samples, vec cx, vec cy, ray& camera,
 	int y, x;
 	vec r;
 
-#pragma omp parallel for private(y, x, r) schedule(static)
+#pragma omp parallel for private(y, x, r) schedule(dynamic)
 
 	for (y = 0; y < dimension; ++y)
 	{
@@ -412,18 +412,17 @@ int main(int argc, char **argv)
 	//creating new file for analysis
 	//while (dimension != 1648)
 	//{
-		for (unsigned int run = 0; run < 5; run++)
+		for (unsigned int run = 0; run < 10; run++)
 		{
 
 			size_t samples = 1; // Algorithm performs 4 * samples per pixel.
 
 			cout << "Run : " << run + 1 << endl;
 
-			while (samples != 4)		//STARTED LOOP HERE!!!
+			while (samples != 256)		//STARTED LOOP HERE!!!
 			{
-				ofstream initialAnalysis("spheresCorrelation.csv", std::ios_base::app);
-
-				//ofstream initialAnalysis("homeSerialResults_bothDimensions_9spheres.csv", std::ios_base::app);
+				//ofstream initialAnalysis("homeOMPDynamicResults_bothDimensions_9spheres.csv", std::ios_base::app);
+				ofstream initialAnalysis("homeSerialsResults_400x400_14spheres.csv", std::ios_base::app);
 				initialAnalysis << "Run : " << run + 1 << endl;
 
 				//creating new file for initial analysis
@@ -442,7 +441,7 @@ int main(int argc, char **argv)
 					sphere(16.5, vec(27, 16.5, 47), vec(), vec(1, 1, 1) * 0.999, reflection_type::SPECULAR),
 					sphere(16.5, vec(73, 16.5, 78), vec(), vec(1, 1, 1) * 0.999, reflection_type::REFRACTIVE),
 
-					
+
 					//Sphere added for analysis on 14 shperes
 					sphere(5, vec(50, 10, 32), vec(), vec(0, 0.75, 0), reflection_type::REFRACTIVE),
 					sphere(8, vec(50, 45, 20), vec(), vec(0.75, 0.75, 0), reflection_type::SPECULAR),
@@ -460,23 +459,23 @@ int main(int argc, char **argv)
 					sphere(8, vec(70, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
 					////******
 
-					//Sphere added for analysis on 25 spheres
-					sphere(12, vec(22, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
-					sphere(4, vec(44, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
-					sphere(16, vec(68, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
-					sphere(5, vec(35, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
-					sphere(2, vec(10, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
-					sphere(10, vec(20, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
-					////******
-					
-					//Sphere added for analysis on 30 spheres
-					sphere(17, vec(10, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
-					sphere(11, vec(20, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
-					sphere(3, vec(20, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
-					sphere(5, vec(70, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
-					sphere(9, vec(50, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
-					sphere(13, vec(45, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
-					////******
+					////Sphere added for analysis on 25 spheres
+					//sphere(12, vec(22, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
+					//sphere(4, vec(44, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
+					//sphere(16, vec(68, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
+					//sphere(5, vec(35, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
+					//sphere(2, vec(10, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
+					//sphere(10, vec(20, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
+					//////******
+					//
+					////Sphere added for analysis on 30 spheres
+					//sphere(17, vec(10, 20, 32), vec(), vec(0.75, 0.25, 0), reflection_type::DIFFUSE),
+					//sphere(11, vec(20, 35, 20), vec(), vec(0, 0.25, 0), reflection_type::SPECULAR),
+					//sphere(3, vec(20, 60, 78), vec(), vec(0.75, 0, 0.25), reflection_type::REFRACTIVE),
+					//sphere(5, vec(70, 30, 90), vec(), vec(0, 0.25, 0.75), reflection_type::SPECULAR),
+					//sphere(9, vec(50, 65, 78), vec(), vec(0.75, 0.75, 0), reflection_type::REFRACTIVE),
+					//sphere(13, vec(45, 35, 78), vec(), vec(0.75, 0, 0), reflection_type::DIFFUSE),
+					//////******
 
 					sphere(600, vec(50, 681.6 - 0.27, 81.6), vec(12, 12, 12), vec(), reflection_type::DIFFUSE)
 				};
@@ -497,23 +496,23 @@ int main(int argc, char **argv)
 				//splitting dimenstion of the image by available threads
 				auto range = dimension / num_threads;
 
-				//for (int i = 0; i < num_threads - 1; i++)
-				//{
-				//	////Threads
-				//	allThreads.push_back(thread(getPixelsThreads, dimension, samples, cx, cy, r, camera, spheres, ref(pixels), i * range, (i + 1) * range));
-				//}
+				for (int i = 0; i < num_threads - 1; i++)
+				{
+					////Threads
+					allThreads.push_back(thread(getPixelsThreads, dimension, samples, cx, cy, r, camera, spheres, ref(pixels), i * range, (i + 1) * range));
+				}
 
-				////Main thread performs last calculation
-				//getPixelsThreads(dimension, samples, cx, cy, r, camera, spheres, pixels, (num_threads - 1) * range, num_threads * range);
+				//Main thread performs last calculation
+				getPixelsThreads(dimension, samples, cx, cy, r, camera, spheres, ref(pixels), (num_threads - 1) * range, num_threads * range);
 
-				////joining threads
-				//for (auto &t : allThreads)
-				//{
-				//	t.join();
-				//}
+				//joining threads
+				for (auto &t : allThreads)
+				{
+					t.join();
+				}
 
 				//Default loop calculation
-				oldGetPixels(dimension, samples, cx, cy, r, camera, spheres, pixels);
+				//oldGetPixels(dimension, samples, cx, cy, r, camera, spheres, pixels);
 
 				//getPixelsOMP(dimension, samples, cx, cy, camera, spheres, pixels);
 
