@@ -1,0 +1,240 @@
+Run : 1
+Sample per pixel: 4
+Time taken(s): 
+2.239
+
+
+Run : 1
+Sample per pixel: 16
+Time taken(s): 
+8.15
+
+
+Run : 1
+Sample per pixel: 64
+Time taken(s): 
+29.274
+
+
+Run : 1
+Sample per pixel: 256
+Time taken(s): 
+118.203
+
+
+Run : 2
+Sample per pixel: 4
+Time taken(s): 
+1.914
+
+
+Run : 2
+Sample per pixel: 16
+Time taken(s): 
+7.203
+
+
+Run : 2
+Sample per pixel: 64
+Time taken(s): 
+28.906
+
+
+Run : 2
+Sample per pixel: 256
+Time taken(s): 
+118.392
+
+
+Run : 3
+Sample per pixel: 4
+Time taken(s): 
+2.128
+
+
+Run : 3
+Sample per pixel: 16
+Time taken(s): 
+8.414
+
+
+Run : 3
+Sample per pixel: 64
+Time taken(s): 
+29.661
+
+
+Run : 3
+Sample per pixel: 256
+Time taken(s): 
+115.639
+
+
+Run : 4
+Sample per pixel: 4
+Time taken(s): 
+2.159
+
+
+Run : 4
+Sample per pixel: 16
+Time taken(s): 
+8.547
+
+
+Run : 4
+Sample per pixel: 64
+Time taken(s): 
+30.85
+
+
+Run : 4
+Sample per pixel: 256
+Time taken(s): 
+122.759
+
+
+Run : 5
+Sample per pixel: 4
+Time taken(s): 
+1.914
+
+
+Run : 5
+Sample per pixel: 16
+Time taken(s): 
+7.511
+
+
+Run : 5
+Sample per pixel: 64
+Time taken(s): 
+30.02
+
+
+Run : 5
+Sample per pixel: 256
+Time taken(s): 
+122.454
+
+
+Run : 6
+Sample per pixel: 4
+Time taken(s): 
+1.931
+
+
+Run : 6
+Sample per pixel: 16
+Time taken(s): 
+7.531
+
+
+Run : 6
+Sample per pixel: 64
+Time taken(s): 
+30.426
+
+
+Run : 6
+Sample per pixel: 256
+Time taken(s): 
+122.074
+
+
+Run : 7
+Sample per pixel: 4
+Time taken(s): 
+1.947
+
+
+Run : 7
+Sample per pixel: 16
+Time taken(s): 
+7.546
+
+
+Run : 7
+Sample per pixel: 64
+Time taken(s): 
+29.499
+
+
+Run : 7
+Sample per pixel: 256
+Time taken(s): 
+123.605
+
+
+Run : 8
+Sample per pixel: 4
+Time taken(s): 
+1.963
+
+
+Run : 8
+Sample per pixel: 16
+Time taken(s): 
+7.718
+
+
+Run : 8
+Sample per pixel: 64
+Time taken(s): 
+29.708
+
+
+Run : 8
+Sample per pixel: 256
+Time taken(s): 
+121.529
+
+
+Run : 9
+Sample per pixel: 4
+Time taken(s): 
+1.951
+
+
+Run : 9
+Sample per pixel: 16
+Time taken(s): 
+7.559
+
+
+Run : 9
+Sample per pixel: 64
+Time taken(s): 
+29.794
+
+
+Run : 9
+Sample per pixel: 256
+Time taken(s): 
+122.089
+
+
+Run : 10
+Sample per pixel: 4
+Time taken(s): 
+2.23
+
+
+Run : 10
+Sample per pixel: 16
+Time taken(s): 
+8.576
+
+
+Run : 10
+Sample per pixel: 64
+Time taken(s): 
+30.706
+
+
+Run : 10
+Sample per pixel: 256
+Time taken(s): 
+119.433
+
+
