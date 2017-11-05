@@ -14,7 +14,6 @@
 #include <iostream>
 #include <string>
 #include <mutex>
-#include <future>
 #include <omp.h>
 
 using namespace std;
@@ -336,15 +335,14 @@ void getPixelsOMP(size_t dimension, size_t samples, vec cx, vec cy, ray& camera,
 	uniform_real_distribution<double> distribution;
 	auto get_random_number = bind(distribution, generator);
 
-	int y, x;
 	vec r;
 
-	//Using OpenMP declaring y, x, and r as private and scheduling the work dynamically
-#pragma omp parallel for private(y, x, r) schedule(dynamic)
+	//Using OpenMP declaring r as private and scheduling the work statically
+#pragma omp parallel for private(r) schedule(dynamic)
 
-	for (y = 0; y < dimension; ++y)
+	for (int y = 0; y < dimension; ++y)
 	{
-		for (x = 0; x < dimension; ++x)
+		for (int x = 0; x < dimension; ++x)
 		{
 			for (int sy = 0, i = (dimension - y - 1) * dimension + x; sy < 2; ++sy)
 			{
@@ -385,7 +383,7 @@ void getPixelsThreads(size_t dimension, size_t samples, vec cx, vec cy, vec r, r
 			{
 				for (size_t sx = 0; sx < 2; ++sx)
 				{
-					vec r = vec();
+					r = vec();
 					for (int s = 0; s < samples; ++s)
 					{
 						double r1 = 2 * get_random_number(), dx = r1 < 1 ? sqrt(r1) - 1 : 1 - sqrt(2 - r1);
@@ -417,10 +415,9 @@ int main(int argc, char **argv)
 
 			cout << "Run : " << run + 1 << endl;
 
-			while (samples != 256)		//STARTED LOOP HERE!!!
+			while (samples != 64)		//STARTED LOOP HERE!!!
 			{
-				//ofstream initialAnalysis("homeOMPDynamicResults_bothDimensions_9spheres.csv", std::ios_base::app);
-				//ofstream initialAnalysis("idk.csv", std::ios_base::app);
+				//ofstream initialAnalysis("homeDYNAMIC_1024_9spheres.csv", std::ios_base::app);
 				//initialAnalysis << "Run : " << run + 1 << endl;
 
 				//creating new file for initial analysis
@@ -484,6 +481,8 @@ int main(int argc, char **argv)
 				vec cy = (cx.cross(camera.direction)).normal() * 0.5135;
 				vec r;
 				vector<vec> pixels(dimension * dimension);
+
+				//Retrieving available threads
 				auto num_threads = thread::hardware_concurrency();
 
 				//Start point to measure time of execution
@@ -491,19 +490,20 @@ int main(int argc, char **argv)
 
 				vector<thread> allThreads;
 
-				//splitting dimenstion of the image by available threads
+				//Splitting dimenstion of the image by available threads
 				auto range = dimension / num_threads;
 
+				////Loop for creating threads based on a start and an end point
 				//for (int i = 0; i < num_threads - 1; i++)
 				//{
-				//	////Threads
+				//	//Creating and pushing Threads into a vector
 				//	allThreads.push_back(thread(getPixelsThreads, dimension, samples, cx, cy, r, camera, spheres, ref(pixels), i * range, (i + 1) * range));
 				//}
 
 				////Main thread performs last calculation
 				//getPixelsThreads(dimension, samples, cx, cy, r, camera, spheres, ref(pixels), (num_threads - 1) * range, num_threads * range);
 
-				////joining threads
+				////Joining threads
 				//for (auto &t : allThreads)
 				//{
 				//	t.join();
